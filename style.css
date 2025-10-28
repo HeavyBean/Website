@@ -109,3 +109,9 @@ body {
     font-family: 'JetBrains Mono', monospace;
     text-align: center;
 }
+
+.coming-soon {
+  /* optional styling */
+  font-family: "JetBrains Mono", monospace;
+  font-size: 2rem;
+}
