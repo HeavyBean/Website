@@ -111,7 +111,8 @@ body {
 }
 
 .coming-soon {
-  /* optional styling */
-  font-family: "JetBrains Mono", monospace;
-  font-size: 2rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 2rem;
+    text-align: center;
+    align-items: center;
 }
