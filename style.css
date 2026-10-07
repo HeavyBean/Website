@@ -1,118 +1,213 @@
-/* 
------- Home Page ------
-*/
+/* =========================================================
+   HEAVYBEAN — minimal terminal-style site
+   ========================================================= */
 
-/* Add black background to the top navigation bar */
-.topnav {
-    background-color: none;
-    overflow: hidden;
-    font-family: 'Courier New', monospace;
-    line-height: 1.6;
-    margin: 0;
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-
+:root {
+    --bg: #0b0b0b;
+    --fg: #e8e8e8;
+    --dim: #7a7a7a;
+    --line: #2a2a2a;
+    --hi-bg: #e8e8e8;
+    --hi-fg: #0b0b0b;
 }
 
-/* Style the links inside the navigation bar */
-.topnav a {
-    float: left;
-    color: #e8e8e8;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 19px;
-}
+* { box-sizing: border-box; }
 
-/* Change the color of links on hover */
-.topnav a:hover {
-    text-decoration: underline;
-    background-color: none;
-    color: rgb(255, 255, 255);
-}
+html { background: var(--bg); }
 
-/* Add a color to the active/current link */
-.topnav a.active {
-    background-color: none;
-    color: white;
-}
-
-/* Giving the entire body of the website a colour */
 body {
-    background-color: #222222;
-    font-family: 'JetBrains Mono', monospace;
-    padding: 20px;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 860px;
     margin: 0 auto;
-    max-width: 900px;
-
+    padding: 48px 16px 32px;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* 
------- List ------
-*/
+::selection { background: var(--hi-bg); color: var(--hi-fg); }
+
+a { color: inherit; }
+
+/* ------ Header / wordmark ------ */
+
+.site-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo {
+    display: inline-block;
+    color: var(--fg);
+    text-decoration: none;
+    font-size: clamp(26px, 7vw, 52px);
+    font-weight: 700;
+    letter-spacing: 0.45em;
+    margin-right: -0.45em;          /* balance trailing letter-spacing */
+    line-height: 1.1;
+}
+
+.tagline {
+    color: var(--dim);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    margin: 10px 0 0;
+}
+
+/* ------ Nav ------ */
+
+.topnav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 6px;
+    margin-top: 28px;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.topnav a {
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    padding: 2px 10px;
+}
+
+.topnav a:hover,
+.topnav a.active {
+    background: var(--hi-bg);
+    color: var(--hi-fg);
+}
+
+/* ------ Post list ------ */
+
+.section-label {
+    color: var(--dim);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    margin: 0 0 14px;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
 .list li {
-    color: #e8e8e8;
-    list-style-type: none;
-    margin-bottom: 15px;
-
+    border-bottom: 1px dotted var(--line);
 }
 
-.list li:hover {
-    color: white;
-}
-
-.list a {
-    color: inherit;
+.list a,
+.list .placeholder {
+    display: block;
+    padding: 9px 6px;
     text-decoration: none;
-    transition: font-size 0.7s ease;
+    text-transform: uppercase;
+    font-size: 14px;
 }
 
 .list a:hover {
-    color: inherit;
-    text-decoration: underline;
-    font-size: 1.01em;
+    background: var(--hi-bg);
+    color: var(--hi-fg);
 }
 
-.list a:visited {
-    color: inherit;
+.list a:hover .tag { color: var(--hi-fg); }
+
+.tag {
+    color: var(--dim);
+    margin-right: 8px;
 }
 
-/* 
------- Subpages ------
-*/
+.placeholder { color: var(--dim); }
+
+/* ------ Post pages ------ */
 
 .back-button {
     display: inline-block;
-    padding: 10px 15px;
-    background-color: #333;
-    color: #e8e8e8;
+    color: var(--fg);
     text-decoration: none;
-    font-size: 35px;
-    border-radius: 4px;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    padding: 2px 8px;
+    margin-bottom: 28px;
 }
 
 .back-button:hover {
-    background-color: #464646;
-    color: white;
+    background: var(--hi-bg);
+    color: var(--hi-fg);
 }
 
-.content {
-    padding-top: 50px;
-    color: #e8e8e8;
-    font-family: 'JetBrains Mono', monospace;
+.post-meta {
+    color: var(--dim);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    margin: 0 0 6px;
 }
 
 .main-title {
-    color: #e8e8e8;
-    font-family: 'JetBrains Mono', monospace;
-    text-align: center;
+    font-size: clamp(20px, 4.5vw, 28px);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 28px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
 }
 
+.content {
+    max-width: 68ch;
+    margin: 0 0 1.4em;
+}
+
+.content a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.content a:hover {
+    background: var(--hi-bg);
+    color: var(--hi-fg);
+    text-decoration: none;
+}
+
+/* ------ Coming soon ------ */
+
 .coming-soon {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 2rem;
+    color: var(--dim);
+    font-size: 14px;
+    letter-spacing: 0.15em;
     text-align: center;
-    align-items: center;
+    padding: 60px 0;
+}
+
+.cursor {
+    display: inline-block;
+    width: 0.6em;
+    height: 1.1em;
+    background: var(--fg);
+    vertical-align: text-bottom;
+    margin-left: 4px;
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+    .cursor { animation: none; }
+}
+
+/* ------ Footer ------ */
+
+.site-footer {
+    margin-top: 64px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    color: var(--dim);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-align: center;
 }
