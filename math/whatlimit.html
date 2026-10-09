@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>What Are Limit's</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../style.css">
+    </head>
+
+    <body>
+
+    <header class="site-header">
+        <a class="logo" href="index.html">HEAVYBEAN</a>
+        <p class="tagline">Year 1 UG &middot; Mathematics & Philosophy</p>
+        <nav class="topnav">
+            <a href="../index.html">HOME</a>
+            <a href="../math.html">MATHEMATICS</a>
+            <a href="../philosophy.html">PHILOSOPHY</a>
+            <a href="../logic.html">LOGIC</a>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <a href="../math.html" class="back-button">&larr; BACK</a>
+            <p class="post-meta">[MA] WHAT ARE LIMITS?</p>
+            <h1 class="main-title">The Squeeze Theorem & the Precise Definition of a Limit</h1>
+
+            <h2 class="sub-title">// THE SQUEEZE THEOREM</h2>
+
+            <p class="content">Suppose \(f, g, h\) are defined close to, but not necessarily at, \(a\). Suppose also that: \[ f(x) \le g(x) \le h(x) \] for \(x\) close to, but not necessarily equal to, \(a\). Suppose that: \[ \lim_{x \to a} f(x) = L = \lim_{x \to a} h(x) \] Then \[ \lim_{x \to a} g(x) = L \text{ also.} \]</p>
+
+            <img class="figure" src="../Images/sandwhich.png" alt="Squeeze theorem sandwich: f and h are the bread, g is the hummus">
+
+            <h2 class="sub-title">// Example 4.20</h2> <!--Add a fold out option for the examples to allow the user to hide them if they wish. make a cool swoop animation-->
+
+            <p class="content">Define \(g\) by \(g(x) = x^2 \sin\left(\frac{1}{x}\right)\). Its domain is \(\mathbb{R} \setminus \{0\}\). We want to compute \(\lim_{x \to 0} g(x)\). We'll use the Squeeze Theorem. Define \(f\) and \(h\) by \(f(x) = -x^2\), \(h(x) = x^2\). Since \(x^2 \ge 0\) and since \(-1 \le \sin\left(\frac{1}{x}\right) \le 1\), we have \[ -x^2 \le x^2 \sin\left(\frac{1}{x}\right) \le x^2 \] \[ f(x) \le g(x) \le h(x) \] Now \[ \lim_{x \to 0} f(x) = \lim_{x \to 0} -x^2 = -0^2 = 0 \] and \[ \lim_{x \to 0} h(x) = \lim_{x \to 0} x^2 = 0^2 = 0 \] So \[ \lim_{x \to 0} x^2 \sin\left(\frac{1}{x}\right) = 0 \text{ as well.} \]</p>
+
+            <h2 class="sub-title">// Example 4.23</h2>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        HEAVYBEAN &middot; EUAN LILLICO
+    </footer>
+
+    </body>
+</html>

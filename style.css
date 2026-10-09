@@ -127,6 +127,15 @@ a { color: inherit; }
 
 /* ------ Post pages ------ */
 
+.sub-title {
+    font-size: 20px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 2.4em 0 1em;
+    padding-bottom: 6px;
+    border-bottom: 1px dotted var(--line);
+}
+
 .back-button {
     display: inline-block;
     color: var(--fg);
@@ -179,6 +188,11 @@ a { color: inherit; }
     font-size: 120% !important;
 }
 
+/* This is to allow LaTeX to wrap on mobile adn not scroll on forever to the right. */
+mjx-container[display="true"] {
+    overflow-x: auto;
+}
+
 /* ------ Coming soon ------ */
 
 .coming-soon {
@@ -203,6 +217,15 @@ a { color: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
     .cursor { animation: none; }
+}
+
+/* ------ Images ------ */
+
+.figure {
+    display: block;
+    max-width: 50%;
+    height: auto;
+    margin: 1.4em auto;
 }
 
 /* ------ Footer ------ */
